@@ -1,4 +1,4 @@
-package ru.astondevs.lab16;
+package ru.astondevs.lab18;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
