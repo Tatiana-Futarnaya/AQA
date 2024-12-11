@@ -1,4 +1,5 @@
 package ru.astondevs.lab18;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
  * @author Tatiana Futarnaya
  */
@@ -82,7 +84,6 @@ class MainPageMtsTest {
         }
         return "Неизвестная версия"; // Если драйвер не Chrome
     }
-
 
 
     @Step("Выбор услуги: {serviceType}")
@@ -245,7 +246,8 @@ class MainPageMtsTest {
 
         String actualAccountPlaceholder = mainPageMts.getAccountNumberPlaceholder();
 
-        assertEquals(expectedAccountPlaceholder, actualAccountPlaceholder, "Неверная надпись в поле номера счета на 44");
+        assertEquals(expectedAccountPlaceholder, actualAccountPlaceholder,
+                "Неверная надпись в поле номера счета на 44");
     }
 
     @DisplayName("Проверка надписей в незаполненных полях для рассрочки")
@@ -290,7 +292,8 @@ class MainPageMtsTest {
 
         String actualAccountPlaceholder = mainPageMts.getAccountNumber2073Placeholder();
 
-        assertEquals(expectedAccountPlaceholder, actualAccountPlaceholder, "Неверная надпись в поле номера счета на 2073");
+        assertEquals(expectedAccountPlaceholder, actualAccountPlaceholder,
+                "Неверная надпись в поле номера счета на 2073");
     }
 
     @DisplayName("Проверка надписей в незаполненных полях для задолженности")
@@ -369,7 +372,8 @@ class MainPageMtsTest {
         String displayedPhoneNumber
                 = wait
                 .until(ExpectedConditions
-                        .visibilityOfElementLocated(By.xpath("//div[contains(@class, 'pay-description__text')]//span")))
+                        .visibilityOfElementLocated
+                                (By.xpath("//div[contains(@class, 'pay-description__text')]//span")))
                 .getText();
         String actualPhoneNumber = displayedPhoneNumber.replaceAll("[^0-9]", "");
 
@@ -386,7 +390,9 @@ class MainPageMtsTest {
 
         String displayedAmount
                 = wait
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'pay-description__cost')]//span")))
+                .until(ExpectedConditions.
+                        visibilityOfElementLocated
+                                (By.xpath("//div[contains(@class, 'pay-description__cost')]//span")))
                 .getText();
         String actualAmount = displayedAmount.replaceAll("[^0-9.]", "");
 
@@ -402,7 +408,9 @@ class MainPageMtsTest {
         preparePayment(phoneNumber, amount);
 
         WebElement amountButton =
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(@class, 'colored disabled')]")));
+                wait.until(ExpectedConditions.
+                        visibilityOfElementLocated
+                                (By.xpath("//button[contains(@class, 'colored disabled')]")));
         String buttonText = amountButton.getText().replaceAll("[^0-9.]", ""); // Удаляем все, кроме цифр и точки
 
         assertEquals(formatAmount(amount), buttonText, "Сумма на кнопке отображается неверно");
@@ -417,7 +425,8 @@ class MainPageMtsTest {
         preparePayment(phoneNumber, amount);
 
         List<WebElement> paymentIcons =
-                driver.findElements(By.xpath("//div[contains(@class, 'icons-container ng-tns-c46-1')]//img"));
+                driver.findElements
+                        (By.xpath("//div[contains(@class, 'icons-container ng-tns-c46-1')]//img"));
         assertTrue(paymentIcons.size() >= 5, "Количество иконок платежных систем меньше 5");
     }
 
@@ -429,7 +438,8 @@ class MainPageMtsTest {
     void shouldDisplayCorrectCardNumberLabel(String phoneNumber, String amount) {
         preparePayment(phoneNumber, amount);
 
-        assertEquals("Номер карты", mainPageMts.getCardNumberLabel(), "Неверная надпись в поле номера карты");
+        assertEquals("Номер карты", mainPageMts.getCardNumberLabel(),
+                "Неверная надпись в поле номера карты");
     }
 
     @DisplayName("Проверка надписей в незаполненных полях для ввода реквизитов карты")
@@ -440,7 +450,8 @@ class MainPageMtsTest {
     void shouldDisplayCorrectCardExpiryLabel(String phoneNumber, String amount) {
         preparePayment(phoneNumber, amount);
 
-        assertEquals("Срок действия", mainPageMts.getCardExpiryLabel(), "Неверная надпись в поле срока действия");
+        assertEquals("Срок действия", mainPageMts.getCardExpiryLabel(),
+                "Неверная надпись в поле срока действия");
     }
 
     @DisplayName("Проверка надписей в незаполненных полях для ввода реквизитов карты")
@@ -462,6 +473,7 @@ class MainPageMtsTest {
     void shouldDisplayCorrectCardHolderLabel(String phoneNumber, String amount) {
         preparePayment(phoneNumber, amount);
 
-        assertEquals("Имя держателя (как на карте)", mainPageMts.getCardHolderLabel(), "Неверная надпись в поле имени держателя карты");
+        assertEquals("Имя держателя (как на карте)", mainPageMts.getCardHolderLabel(),
+                "Неверная надпись в поле имени держателя карты");
     }
 }

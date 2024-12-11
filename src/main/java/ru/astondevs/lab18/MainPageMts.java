@@ -50,43 +50,51 @@ public class MainPageMts {
     private WebElement serviceTypeDebt;
 
     // Поля для услуг связи
-    @FindBy(xpath = "//input[@id='connection-email' and  @placeholder='E-mail для отправки чека']")// Плейсхолдер для e-mail услуг связи
+    @FindBy(xpath = "//input[@id='connection-email' and  @placeholder='E-mail для отправки чека']")
+// Плейсхолдер для e-mail услуг связи
     private WebElement emailInput;
 
     @FindBy(xpath = "//input[@id='connection-sum' and @placeholder='Сумма']")// Плейсхолдер для суммы услуг связи
     private WebElement sumInput;
 
-    @FindBy(xpath = "//input[@id='connection-phone' and @placeholder='Номер телефона']") // Плейсхолдер для номера телефона
+    @FindBy(xpath = "//input[@id='connection-phone' and @placeholder='Номер телефона']")
+    // Плейсхолдер для номера телефона
     private WebElement connectionPhoneInput;
 
     // Поля для домашнего интернета
-    @FindBy(xpath = "//input[@id='internet-phone' and @placeholder='Номер абонента']") // Плейсхолдер для номера абонента
+    @FindBy(xpath = "//input[@id='internet-phone' and @placeholder='Номер абонента']")
+    // Плейсхолдер для номера абонента
     private WebElement subscriberNumberInput;
 
     @FindBy(xpath = "//input[@id='internet-sum' and @placeholder='Сумма']") // Плейсхолдер для суммы абонента
     private WebElement subscriberSumInput;
 
-    @FindBy(xpath = "//input[@id='internet-email' and @placeholder='E-mail для отправки чека']") // Плейсхолдер для e-mail абонента
+    @FindBy(xpath = "//input[@id='internet-email' and @placeholder='E-mail для отправки чека']")
+    // Плейсхолдер для e-mail абонента
     private WebElement subscriberEmailInput;
 
     // Поля для рассрочки
-    @FindBy(xpath = "//input[@id='score-instalment' and @placeholder='Номер счета на 44']") // Плейсхолдер для номера счета на 44
+    @FindBy(xpath = "//input[@id='score-instalment' and @placeholder='Номер счета на 44']")
+    // Плейсхолдер для номера счета на 44
     private WebElement accountNumberInput;
 
     @FindBy(xpath = "//input[@id='instalment-sum' and @placeholder='Сумма']") // Плейсхолдер суммы для рассрочки
     private WebElement accountSumNumberInput;
 
-    @FindBy(xpath = "//input[@id='instalment-email' and @placeholder='E-mail для отправки чека']") // Плейсхолдер e-mail для рассрочки
+    @FindBy(xpath = "//input[@id='instalment-email' and @placeholder='E-mail для отправки чека']")
+    // Плейсхолдер e-mail для рассрочки
     private WebElement accountEmailNumberInput;
 
     // Поля для задолженности
-    @FindBy(xpath = "//input[@id='score-arrears' and @placeholder='Номер счета на 2073']") // Плейсхолдер для номера счета на 2073
+    @FindBy(xpath = "//input[@id='score-arrears' and @placeholder='Номер счета на 2073']")
+    // Плейсхолдер для номера счета на 2073
     private WebElement accountNumber2073Input;
 
     @FindBy(xpath = "//input[@id='arrears-sum' and @placeholder='Сумма']") // Плейсхолдер суммы для номера счета на 2073
     private WebElement accountSumNumber2073Input;
 
-    @FindBy(xpath = "//input[@id='arrears-email' and @placeholder='E-mail для отправки чека']") // Плейсхолдер e-mail для номера счета на 2073
+    @FindBy(xpath = "//input[@id='arrears-email' and @placeholder='E-mail для отправки чека']")
+    // Плейсхолдер e-mail для номера счета на 2073
     private WebElement accountEmailNumber2073Input;
 
     // Поля для реквизитов карты
@@ -99,7 +107,8 @@ public class MainPageMts {
     @FindBy(xpath = "//app-input//label[contains(text(), 'CVC')]") // Поле для CVV
     private WebElement cardCVVInput;
 
-    @FindBy(xpath = "//app-input//label[contains(text(), 'Имя держателя (как на карте)')]") // Поле для имени держателя карты
+    @FindBy(xpath = "//app-input//label[contains(text(), 'Имя держателя (как на карте)')]")
+    // Поле для имени держателя карты
     private WebElement cardHolderInput;
 
     public boolean isBlockTitleDisplayed() {
